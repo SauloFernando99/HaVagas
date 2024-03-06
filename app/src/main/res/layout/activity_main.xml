@@ -34,12 +34,13 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Nome completo"/>
+                    android:text="@string/nome_completo"/>
 
                 <EditText
                     android:id="@+id/etFullName"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"/>
+                    android:layout_height="wrap_content"
+                    android:autofillHints="" />
             </LinearLayout>
 
             <LinearLayout
@@ -50,7 +51,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Email"/>
+                    android:text="@string/email"/>
 
                 <EditText
                     android:id="@+id/editTextEmail"
@@ -60,7 +61,7 @@
                     android:id="@+id/checkBoxReceberEmail"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Receber E-mails com atualizações de oportunidades" />
+                    android:text="@string/receber_e_mails_com_atualiza_es_de_oportunidades" />
 
             </LinearLayout>
 
@@ -72,13 +73,14 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Telefone"/>
+                    android:text="@string/telefone"/>
 
                 <EditText
                     android:id="@+id/editTextTelefone"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:inputType="phone" />
+                    android:inputType="phone"
+                    android:autofillHints="" />
 
                 <RadioGroup
                     android:id="@+id/radioGroupTipoTelefone"
@@ -90,13 +92,13 @@
                         android:id="@+id/radioButtonResidencial"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Residencial" />
+                        android:text="@string/residencial" />
 
                     <RadioButton
                         android:id="@+id/radioButtonComercial"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Comercial" />
+                        android:text="@string/comercial" />
 
                 </RadioGroup>
 
@@ -104,14 +106,14 @@
                     android:id="@+id/buttonAdicionarCelular"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Adicionar Celular"
+                    android:text="@string/adicionar_celular"
                     android:onClick="adicionarCelular"/>
 
                 <TextView
                     android:id="@+id/textViewTelefoneCelular"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Telefone Celular"
+                    android:text="@string/telefone_celular"
                     android:visibility="gone"/>
 
                 <EditText
@@ -131,7 +133,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Sexo"/>
+                    android:text="@string/sexo"/>
 
                 <RadioGroup
                     android:id="@+id/rgSex"
@@ -143,13 +145,13 @@
                         android:id="@+id/rbMale"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Masculino"/>
+                        android:text="@string/masculino"/>
 
                     <RadioButton
                         android:id="@+id/rbFemale"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Feminino"/>
+                        android:text="@string/feminino"/>
                 </RadioGroup>
             </LinearLayout>
 
@@ -161,7 +163,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Data de Nascimento"/>
+                    android:text="@string/data_de_nascimento"/>
 
                 <EditText
                     android:id="@+id/editTextDataNascimento"
@@ -179,7 +181,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Formação"/>
+                    android:text="@string/forma_o"/>
 
                 <Spinner
                     android:id="@+id/spinnerFormacao"
@@ -191,7 +193,7 @@
                     android:id="@+id/textViewAnoConclusao"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Ano de Conclusão"/>
+                    android:text="@string/ano_de_conclus_o"/>
 
                 <EditText
                     android:id="@+id/editTextAnoConclusao"
@@ -203,7 +205,7 @@
                     android:id="@+id/textViewInstituicao"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Instituição"/>
+                    android:text="@string/institui_o"/>
 
                 <EditText
                     android:id="@+id/editTextInstituicao"
@@ -214,7 +216,7 @@
                     android:id="@+id/textViewTituloMonografia"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Título de Monografia"
+                    android:text="@string/t_tulo_de_monografia"
                     android:visibility="gone"/>
 
                 <EditText
@@ -227,7 +229,7 @@
                     android:id="@+id/textViewOrientador"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Orientador"
+                    android:text="@string/orientador"
                     android:visibility="gone"/>
 
                 <EditText
@@ -246,7 +248,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Vagas de Interesse"/>
+                    android:text="@string/vagas_de_interesse"/>
 
                 <EditText
                     android:id="@+id/editTextVagasInteresse"
@@ -268,13 +270,13 @@
                     android:id="@+id/btnClear"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Limpar"/>
+                    android:text="@string/limpar"/>
 
                 <Button
                     android:id="@+id/btnSave"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Salvar"/>
+                    android:text="@string/salvar"/>
             </LinearLayout>
 
         </LinearLayout>
