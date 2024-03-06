@@ -12,6 +12,7 @@ import android.widget.RadioButton
 import android.widget.RadioGroup
 import android.widget.Spinner
 import android.widget.TextView
+import android.widget.Toast
 
 class MainActivity : AppCompatActivity() {
 
@@ -55,6 +56,12 @@ class MainActivity : AppCompatActivity() {
         configureFormacao()
 
         setupLimpar()
+
+        btnClear = findViewById(R.id.btnClear)
+        btnClear.setOnClickListener { setupLimpar() }
+
+        btnSave = findViewById(R.id.btnSave)
+        btnSave.setOnClickListener { salvarFormulario() }
 
     }
 
@@ -132,6 +139,7 @@ class MainActivity : AppCompatActivity() {
             textViewTelefoneCelular.visibility = View.GONE
             editTextTelefoneCelular.visibility = View.GONE
             editTextTelefoneCelular.text.clear()
+            rgSex.clearCheck()
             rbMale.isChecked = false
             rbFemale.isChecked = false
             editTextDataNascimento.text.clear()
@@ -142,5 +150,46 @@ class MainActivity : AppCompatActivity() {
             editTextOrientador.text.clear()
             editTextVagasInteresse.text.clear()
         }
+    }
+
+    private fun salvarFormulario() {
+        val nomeCompleto = etFullName.text.toString()
+        val email = editTextEmail.text.toString()
+        val receberEmail = checkBoxReceberEmail.isChecked
+        val telefone = editTextTelefone.text.toString()
+        val tipoTelefone = if (radioButtonResidencial.isChecked) "Residencial" else "Comercial"
+        val telefoneCelular = editTextTelefoneCelular.text.toString()
+        val sexo = if (rbMale.isChecked) "Masculino" else "Feminino"
+        val dataNascimento = editTextDataNascimento.text.toString()
+        val formacao = spinnerFormacao.selectedItem.toString()
+        val anoConclusao = editTextAnoConclusao.text.toString()
+        val instituicao = editTextInstituicao.text.toString()
+        val tituloMonografia = editTextTituloMonografia.text.toString()
+        val orientador = editTextOrientador.text.toString()
+        val vagasInteresse = editTextVagasInteresse.text.toString()
+
+        val formulario = Formulario(
+            nomeCompleto = nomeCompleto,
+            email = email,
+            receberEmail = receberEmail,
+            telefone = telefone,
+            tipoTelefone = tipoTelefone,
+            telefoneCelular = telefoneCelular,
+            sexo = sexo,
+            dataNascimento = dataNascimento,
+            formacao = formacao,
+            anoConclusao = anoConclusao,
+            instituicao = instituicao,
+            tituloMonografia = tituloMonografia,
+            orientador = orientador,
+            vagasInteresse = vagasInteresse
+        )
+
+        exibirToast(formulario.toString())
+    }
+
+    private fun exibirToast(message: String) {
+        Toast.makeText(this, message, Toast.LENGTH_LONG).show()
+
     }
 }
