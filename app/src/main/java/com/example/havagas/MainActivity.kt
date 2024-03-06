@@ -30,21 +30,6 @@ class MainActivity : AppCompatActivity() {
     private lateinit var textViewOrientador: TextView
     private lateinit var editTextOrientador: EditText
 
-    private lateinit var etFullName: EditText
-    private lateinit var editTextEmail: EditText
-    private lateinit var checkBoxReceberEmail: CheckBox
-    private lateinit var editTextTelefone: EditText
-    private lateinit var radioButtonResidencial: RadioButton
-    private lateinit var radioButtonComercial: RadioButton
-    private lateinit var rgSex: RadioGroup
-    private lateinit var rbMale: RadioButton
-    private lateinit var rbFemale: RadioButton
-    private lateinit var editTextDataNascimento: EditText
-    private lateinit var editTextVagasInteresse: EditText
-    private lateinit var btnClear: Button
-    private lateinit var btnSave: Button
-
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -57,8 +42,7 @@ class MainActivity : AppCompatActivity() {
 
         setupLimpar()
 
-        btnSave = findViewById(R.id.btnSave)
-        btnSave.setOnClickListener { salvarFormulario() }
+        setupSalvar()
 
     }
 
@@ -145,40 +129,44 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    private fun salvarFormulario() {
-        val nomeCompleto = etFullName.text.toString()
-        val email = editTextEmail.text.toString()
-        val receberEmail = checkBoxReceberEmail.isChecked
-        val telefone = editTextTelefone.text.toString()
-        val tipoTelefone = if (radioButtonResidencial.isChecked) "Residencial" else "Comercial"
-        val telefoneCelular = editTextTelefoneCelular.text.toString()
-        val sexo = if (rbMale.isChecked) "Masculino" else "Feminino"
-        val dataNascimento = editTextDataNascimento.text.toString()
-        val formacao = spinnerFormacao.selectedItem.toString()
-        val anoConclusao = editTextAnoConclusao.text.toString()
-        val instituicao = editTextInstituicao.text.toString()
-        val tituloMonografia = editTextTituloMonografia.text.toString()
-        val orientador = editTextOrientador.text.toString()
-        val vagasInteresse = editTextVagasInteresse.text.toString()
+    private fun setupSalvar() {
+        val btnSave = findViewById<Button>(R.id.btnSave)
 
-        val formulario = Formulario(
-            nomeCompleto = nomeCompleto,
-            email = email,
-            receberEmail = receberEmail,
-            telefone = telefone,
-            tipoTelefone = tipoTelefone,
-            telefoneCelular = telefoneCelular,
-            sexo = sexo,
-            dataNascimento = dataNascimento,
-            formacao = formacao,
-            anoConclusao = anoConclusao,
-            instituicao = instituicao,
-            tituloMonografia = tituloMonografia,
-            orientador = orientador,
-            vagasInteresse = vagasInteresse
-        )
+        findViewById<Button>(R.id.btnSave).setOnClickListener {
+            val nomeCompleto = findViewById<EditText>(R.id.etFullName).text.toString()
+            val email = findViewById<EditText>(R.id.editTextEmail).text.toString()
+            val receberEmail = findViewById<CheckBox>(R.id.checkBoxReceberEmail).isChecked
+            val telefone = findViewById<EditText>(R.id.editTextTelefone).text.toString()
+            val tipoTelefone = if (findViewById<RadioButton>(R.id.radioButtonResidencial).isChecked) "Residencial" else "Comercial"
+            val telefoneCelular = findViewById<EditText>(R.id.editTextTelefoneCelular).text.toString()
+            val sexo = if (findViewById<RadioButton>(R.id.rbMale).isChecked) "Masculino" else "Feminino"
+            val dataNascimento = findViewById<EditText>(R.id.editTextDataNascimento).text.toString()
+            val formacao = findViewById<Spinner>(R.id.spinnerFormacao).selectedItem.toString()
+            val anoConclusao = findViewById<EditText>(R.id.editTextAnoConclusao).text.toString()
+            val instituicao = findViewById<EditText>(R.id.editTextInstituicao).text.toString()
+            val tituloMonografia = findViewById<EditText>(R.id.editTextTituloMonografia).text.toString()
+            val orientador = findViewById<EditText>(R.id.editTextOrientador).text.toString()
+            val vagasInteresse = findViewById<EditText>(R.id.editTextVagasInteresse).text.toString()
 
-        exibirToast(formulario.toString())
+            val formulario = Formulario(
+                nomeCompleto,
+                email,
+                receberEmail,
+                telefone,
+                tipoTelefone,
+                telefoneCelular,
+                sexo,
+                dataNascimento,
+                formacao,
+                anoConclusao,
+                instituicao,
+                tituloMonografia,
+                orientador,
+                vagasInteresse
+            )
+
+            exibirToast(formulario.toString())
+        }
     }
 
     private fun exibirToast(message: String) {
