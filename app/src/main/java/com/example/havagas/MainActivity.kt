@@ -6,7 +6,10 @@ import android.view.View
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.Button
+import android.widget.CheckBox
 import android.widget.EditText
+import android.widget.RadioButton
+import android.widget.RadioGroup
 import android.widget.Spinner
 import android.widget.TextView
 
@@ -26,6 +29,21 @@ class MainActivity : AppCompatActivity() {
     private lateinit var textViewOrientador: TextView
     private lateinit var editTextOrientador: EditText
 
+    private lateinit var etFullName: EditText
+    private lateinit var editTextEmail: EditText
+    private lateinit var checkBoxReceberEmail: CheckBox
+    private lateinit var editTextTelefone: EditText
+    private lateinit var radioButtonResidencial: RadioButton
+    private lateinit var radioButtonComercial: RadioButton
+    private lateinit var rgSex: RadioGroup
+    private lateinit var rbMale: RadioButton
+    private lateinit var rbFemale: RadioButton
+    private lateinit var editTextDataNascimento: EditText
+    private lateinit var editTextVagasInteresse: EditText
+    private lateinit var btnClear: Button
+    private lateinit var btnSave: Button
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -35,6 +53,8 @@ class MainActivity : AppCompatActivity() {
         initializeViews()
 
         configureFormacao()
+
+        setupLimpar()
 
     }
 
@@ -96,5 +116,31 @@ class MainActivity : AppCompatActivity() {
         editTextTituloMonografia.visibility = if (showTituloMonografia) View.VISIBLE else View.GONE
         textViewOrientador.visibility = if (showTituloMonografia) View.VISIBLE else View.GONE
         editTextOrientador.visibility = if (showTituloMonografia) View.VISIBLE else View.GONE
+    }
+
+    private fun setupLimpar() {
+        val btnClear = findViewById<Button>(R.id.btnClear)
+        val btnSave = findViewById<Button>(R.id.btnSave)
+
+        btnClear.setOnClickListener {
+            etFullName.text.clear()
+            editTextEmail.text.clear()
+            checkBoxReceberEmail.isChecked = false
+            editTextTelefone.text.clear()
+            radioButtonResidencial.isChecked = false
+            radioButtonComercial.isChecked = false
+            textViewTelefoneCelular.visibility = View.GONE
+            editTextTelefoneCelular.visibility = View.GONE
+            editTextTelefoneCelular.text.clear()
+            rbMale.isChecked = false
+            rbFemale.isChecked = false
+            editTextDataNascimento.text.clear()
+            spinnerFormacao.setSelection(0)
+            editTextAnoConclusao.text.clear()
+            editTextInstituicao.text.clear()
+            editTextTituloMonografia.text.clear()
+            editTextOrientador.text.clear()
+            editTextVagasInteresse.text.clear()
+        }
     }
 }
