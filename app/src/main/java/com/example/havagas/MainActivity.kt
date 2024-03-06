@@ -30,10 +30,15 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        setupAdicionarCelular()
+
         initializeViews()
 
         configureFormacao()
 
+    }
+
+    private fun setupAdicionarCelular() {
         buttonAdicionarCelular = findViewById(R.id.buttonAdicionarCelular)
         textViewTelefoneCelular = findViewById(R.id.textViewTelefoneCelular)
         editTextTelefoneCelular = findViewById(R.id.editTextTelefoneCelular)
