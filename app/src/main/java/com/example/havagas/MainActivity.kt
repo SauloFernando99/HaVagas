@@ -57,9 +57,6 @@ class MainActivity : AppCompatActivity() {
 
         setupLimpar()
 
-        btnClear = findViewById(R.id.btnClear)
-        btnClear.setOnClickListener { setupLimpar() }
-
         btnSave = findViewById(R.id.btnSave)
         btnSave.setOnClickListener { salvarFormulario() }
 
@@ -127,28 +124,24 @@ class MainActivity : AppCompatActivity() {
 
     private fun setupLimpar() {
         val btnClear = findViewById<Button>(R.id.btnClear)
-        val btnSave = findViewById<Button>(R.id.btnSave)
 
-        btnClear.setOnClickListener {
-            etFullName.text.clear()
-            editTextEmail.text.clear()
-            checkBoxReceberEmail.isChecked = false
-            editTextTelefone.text.clear()
-            radioButtonResidencial.isChecked = false
-            radioButtonComercial.isChecked = false
-            textViewTelefoneCelular.visibility = View.GONE
-            editTextTelefoneCelular.visibility = View.GONE
-            editTextTelefoneCelular.text.clear()
-            rgSex.clearCheck()
-            rbMale.isChecked = false
-            rbFemale.isChecked = false
-            editTextDataNascimento.text.clear()
-            spinnerFormacao.setSelection(0)
-            editTextAnoConclusao.text.clear()
-            editTextInstituicao.text.clear()
-            editTextTituloMonografia.text.clear()
-            editTextOrientador.text.clear()
-            editTextVagasInteresse.text.clear()
+        findViewById<Button>(R.id.btnClear).setOnClickListener {
+            findViewById<EditText>(R.id.etFullName).text.clear()
+            findViewById<EditText>(R.id.editTextEmail).text.clear()
+            findViewById<CheckBox>(R.id.checkBoxReceberEmail).isChecked = false
+            findViewById<EditText>(R.id.editTextTelefone).text.clear()
+            findViewById<RadioGroup>(R.id.radioGroupTipoTelefone).clearCheck()
+            findViewById<EditText>(R.id.editTextTelefoneCelular).text.clear()
+            findViewById<TextView>(R.id.textViewTelefoneCelular).visibility = View.GONE
+            findViewById<EditText>(R.id.editTextTelefoneCelular).visibility = View.GONE
+            findViewById<RadioGroup>(R.id.rgSex).clearCheck()
+            findViewById<EditText>(R.id.editTextDataNascimento).text.clear()
+            findViewById<Spinner>(R.id.spinnerFormacao).setSelection(0)
+            findViewById<EditText>(R.id.editTextAnoConclusao).text.clear()
+            findViewById<EditText>(R.id.editTextInstituicao).text.clear()
+            findViewById<EditText>(R.id.editTextTituloMonografia).text.clear()
+            findViewById<EditText>(R.id.editTextOrientador).text.clear()
+            findViewById<EditText>(R.id.editTextVagasInteresse).text.clear()
         }
     }
 
